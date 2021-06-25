@@ -30,7 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.Inflater;
 
-public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, DialogInterface.OnClickListener, Handler.Callback, View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, DialogInterface.OnClickListener, Handler.Callback {
     List<Usuario> listaUsuarios = new ArrayList<>();
     Dialog dialog;
     View formularioUsuario;
@@ -43,27 +43,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         this.listaUsuarios = Usuario.parseArrayJSON(listaUsuariosArrayJSON);
         TextView tvListaUsuarios = findViewById(R.id.tvListaUsuarios);
         tvListaUsuarios.setText(listaUsuariosArrayJSON.toString());
-
-
-//        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-//        String listaUsuariosStr = prefs.getString("listaUsuarios","no-creada");
-//        JSONArray listaUsuariosArrayJSON = new JSONArray();
-//        try {
-//            if("no-creada".equals(listaUsuariosStr)){
-//                Handler handler = new Handler(this);
-//                Usuario.obtenerListaUsuariosDeLaApi(handler);
-//            }
-//            else{
-//                JSONObject jsonObject = new JSONObject(listaUsuariosStr);
-//                listaUsuariosArrayJSON = jsonObject.getJSONArray("lista");
-//                TextView tvListaUsuarios = findViewById(R.id.tvListaUsuarios);
-//                tvListaUsuarios.setText(listaUsuariosArrayJSON.toString());
-//                this.listaUsuarios = Usuario.parseArrayJSON(listaUsuariosArrayJSON);
-//            }
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
-
     }
 
     @Override
@@ -206,8 +185,4 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         return false;
     }
 
-    @Override
-    public void onClick(View view) {
-
-    }
 }
